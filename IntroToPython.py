@@ -88,3 +88,74 @@ elif float(order_amount) < order_min:
     print(order_amount + " is below minimum order amount")
 else:
     print(order_amount + " costs $" + str(total_cost))
+
+#Module 4 Program: str_analysis() Function
+#Create the str_analysis() function that takes 1 string argument and returns a string message. 
+#The message will be an analysis of a test string that is passed as an argument to str_analysis(). 
+#The function should respond with messages such as:
+
+#   "big number"
+#   "small number"
+#   "all alphabetic"
+#   "multiple character types"
+#The program will call str_analysis() with a string argument from input collected within a while loop. 
+#The while loop will test if input is empty (an empty string "") and continue to loop 
+# and gather input until the user submits at least 1 character (input cannot be empty).
+
+#The program then calls the str_analysis() function and prints the return message.
+
+#Sample input and output:
+#   enter nothing (twice) then enter a word
+#       enter word or integer: 
+        #enter word or integer: 
+#       enter word or integer: Hello
+#       "Hello" is all alphabetical characters!
+
+#   alphabetical word input
+#       enter word or integer: carbonization
+#       "carbonization" is all alphabetical characters!
+
+#   numeric inputs
+#       enter word or integer: 30
+#       30 is a smaller number than expected
+
+#       enter word or integer: 1024
+#       1024 is a pretty big number
+
+#loop until non-empty input is submitted
+#Once the user gives input with characters use the input in calling the str_analysis() function.
+
+#Additional Details
+#In the body of the str_analysis() function:
+
+#Check if string is digits
+#   if digits: convert to int and check if greater than 99
+#       if greater than 99 print a message about a "big number"
+#       if not greater than 99 print message about "small number"
+#check if string isalpha then (since not digits)
+#   if isalpha print message about being all alpha
+#if not isalpha print a message about being neither all alpha nor all digit
+
+#call the function with a string from user input
+
+#Run and test your code before submitting
+# [ ] create, call and test the str_analysis() function  
+
+def str_analysis(input_string):
+    if input_string.isalpha():
+        print('"' + input_string + '"' + ' is all alphabetical characters!')
+    elif input_string.isdigit():
+        if int(input_string) > 99:
+            print(input_string + " is a pretty big number")
+        else:
+            print(input_string + " is a smaller number than expected")
+    else:
+        print('"' + input_string + '"' + ' is neither alpha or digits')
+              
+            
+string_arg = ""
+
+while string_arg == "":
+    string_arg = input("enter word or integer: ")
+else:        
+    print(str_analysis(string_arg))  
